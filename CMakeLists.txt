@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.13.0)
+cmake_minimum_required(VERSION 3.28.0)
 
 project(xca
     DESCRIPTION "X Certificate and Key management"
@@ -57,7 +57,7 @@ endif()
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_AUTOMOC ON)
@@ -120,8 +120,8 @@ find_package(${QT} REQUIRED COMPONENTS Core Widgets Sql Help LinguistTools)
 find_package(${QT} QUIET COMPONENTS Test)
 
 include(cmake/openssl_v_err.cmake)
-if (${QT_VERSION} VERSION_LESS 5.10.0)
-  message(FATAL_ERROR "Qt-${QT_VERSION} not supported, please use at least Qt-5.10.1")
+if (${QT_VERSION} VERSION_LESS 5.16.1)
+  message(FATAL_ERROR "Qt-${QT_VERSION} not supported, please use at least Qt-5.16.1")
 endif()
 message(STATUS "Using ${QT} with version ${QT_VERSION}")
 
